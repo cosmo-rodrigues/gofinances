@@ -12,4 +12,9 @@ export default {
     text: '#969CB2',
     title: '#363F5F',
   },
+  fonts: {
+    regular: 'Poppins_400Regular',
+    medium: 'Poppins_500Medium',
+    bold: 'Poppins_500Medium',
+  }
 }
