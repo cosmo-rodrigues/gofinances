@@ -3,30 +3,35 @@ import React from 'react';
 import {
   Container,
   Header,
-  UserWrapper,
-  UserInfo,
+  Icon,
   Photo,
   User,
+  UserInfo,
+  UserName,
   UserGreeting,
-  UserName
-} from './styles'
+  UserWrapper,
+} from './styles';
 
-export function Dashboard(){
+export function Dashboard() {
   return (
     <Container>
       <Header>
         <UserWrapper>
           <UserInfo>
             <Photo
-              source={{ uri: 'https://avatars.githubusercontent.com/u/49030804?v=4'}}
+              source={{
+                uri: 'https://avatars.githubusercontent.com/u/69174761?v=4',
+              }}
             />
             <User>
               <UserGreeting>Olá,</UserGreeting>
-              <UserName>Rodrigo</UserName>
+              <UserName>Cosmo</UserName>
             </User>
           </UserInfo>
+
+          <Icon name='power' />
         </UserWrapper>
       </Header>
     </Container>
-  )
+  );
 }
