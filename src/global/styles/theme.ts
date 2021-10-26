@@ -10,6 +10,7 @@ export default {
     success: '#12A454',
     success_light: 'rgba(18, 164, 84, 0.5)',
     text: '#969CB2',
+    text_dark: '#000000',
     title: '#363F5F',
   },
   fonts: {
