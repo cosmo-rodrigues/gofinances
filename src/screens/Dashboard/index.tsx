@@ -1,15 +1,22 @@
 import React from 'react';
+import { HighlightCard } from '../../components/HighlightCard';
 
 import {
   Container,
   Header,
-  Icon,
+  UserWrapper,
+  UserInfo,
   Photo,
   User,
-  UserInfo,
-  UserName,
   UserGreeting,
-  UserWrapper,
+  UserName,
+  Icon,
+  HighlightCards,
+  Transactions,
+  Title,
+  // TransactionList,
+  LogoutButton,
+  LoadContainer,
 } from './styles';
 
 export function Dashboard() {
@@ -32,6 +39,15 @@ export function Dashboard() {
           <Icon name='power' />
         </UserWrapper>
       </Header>
+
+      <HighlightCards>
+        <HighlightCard
+          type='up'
+          title='Entradas'
+          amount='R$1700'
+          lastTransaction='Bônus mensal'
+        />
+      </HighlightCards>
     </Container>
   );
 }
