@@ -19,6 +19,7 @@ export interface TransactionCardProps {
   amount: string;
   category: string;
   date: string;
+  icon: string;
 }
 
 interface Props {
@@ -26,7 +27,7 @@ interface Props {
 }
 
 export function TransactionCard({ data }: Props) {
-  const [category] = categories.filter((item) => item.key === data.category);
+  // const [category] = categories.filter((item) => item.key === data.category);
 
   return (
     <Container>
@@ -39,8 +40,8 @@ export function TransactionCard({ data }: Props) {
 
       <Footer>
         <Category>
-          <Icon name={category.icon} />
-          <CategoryName>{category.name}</CategoryName>
+          <Icon name={data?.icon} />
+          <CategoryName>{data?.name}</CategoryName>
         </Category>
 
         <Date>{data.date}</Date>
