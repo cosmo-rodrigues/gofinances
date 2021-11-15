@@ -1,5 +1,6 @@
 import React from 'react';
 import { HighlightCard } from '../../components/HighlightCard';
+import { TransactionCard } from '../../components/TransactionCard';
 
 import {
   Container,
@@ -14,12 +15,44 @@ import {
   HighlightCards,
   Transactions,
   Title,
-  // TransactionList,
+  TransactionList,
   LogoutButton,
   LoadContainer,
 } from './styles';
 
 export function Dashboard() {
+  const data = [
+    {
+      type: 'positive',
+      title: 'Desenvolvimento de Site',
+      amount: 'R$ 12000',
+      category: {
+        name: 'Vendas',
+        icon: 'dollar-sign',
+      },
+      date: '13/04/2020',
+    },
+    {
+      type: 'positive',
+      title: 'Desenvolvimento de App',
+      amount: 'R$ 15000',
+      category: {
+        name: 'Vendas',
+        icon: 'dollar-sign',
+      },
+      date: '10/07/2020',
+    },
+    {
+      type: 'negative',
+      title: 'McBook Pro',
+      amount: 'R$ 7000',
+      category: {
+        name: 'Compra',
+        icon: 'dollar-sign',
+      },
+      date: '12/02/2020',
+    },
+  ];
   return (
     <Container>
       <Header>
@@ -48,6 +81,13 @@ export function Dashboard() {
           lastTransaction='Bônus mensal'
         />
       </HighlightCards>
+
+      <Transactions>
+        <TransactionList
+          data={data}
+          renderItem={({ item }) => <TransactionCard data={item} />}
+        />
+      </Transactions>
     </Container>
   );
 }
