@@ -6,6 +6,7 @@ import android.net.Uri;
 
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -18,6 +19,9 @@ import org.unimodules.adapters.react.ModuleRegistryAdapter;
 import org.unimodules.adapters.react.ReactModuleRegistryProvider;
 import org.unimodules.core.interfaces.Package;
 import org.unimodules.core.interfaces.SingletonModule;
+import expo.modules.constants.ConstantsPackage;
+import expo.modules.permissions.PermissionsPackage;
+import expo.modules.filesystem.FileSystemPackage;
 import expo.modules.updates.UpdatesController;
 
 import com.facebook.react.bridge.JSIModulePackage;
