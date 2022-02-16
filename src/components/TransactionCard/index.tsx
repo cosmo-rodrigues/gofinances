@@ -1,58 +1,52 @@
 import React from 'react';
-
 import { categories } from '../../utils/categories';
 
 import {
-  Container,
-  Title,
-  Amount,
-  Footer,
-  Category,
-  Icon,
-  CategoryName,
-  Date,
+    Container,
+    Title,
+    Amount,
+    Footer,
+    Category,
+    Icon,
+    CategoryName,
+    Date
 } from './styles';
 
-export interface TransactionCardProps {
-  type: 'positive' | 'negative';
-  name: string;
-  amount: string;
-  category: string;
-  date: string;
+interface Category {
+    name: string;
+    icon: string;
 }
 
-interface Props {
-  data: TransactionCardProps;
+export interface TransactionCardDataProps {
+    id: string;
+    transactionType: 'in' | 'out';
+    name: string;
+    amount: string;
+    category: string;
+    date: string;
 }
 
-export function TransactionCard({ data } : Props){
-  const [ category ] = categories.filter(
-    item => item.key === data.category
-  );
+interface TransactionCardProps {
+    data: TransactionCardDataProps
+}
 
-  return (
-    <Container>
-      <Title>
-        {data.name}
-      </Title>
+export const TransactionCard = ({ data }: TransactionCardProps) => {
 
-      <Amount type={data.type}>
-        { data.type === 'negative' && '- ' }
-        { data.amount }
-      </Amount>
+    const { transactionType, name, amount, category, date } = data;
+    const categoryData = categories.find(item => item.key === category)!;
+    const formattedAmount = transactionType === 'out'?`-${amount}`:amount;
 
-      <Footer>
-        <Category>
-          <Icon name= {category.icon} />
-          <CategoryName>
-            {category.name}
-          </CategoryName>
-        </Category>
-
-        <Date>
-          {data.date}
-        </Date>
-      </Footer>
-    </Container>
-  )
+    return (
+        <Container>
+            <Title>{name}</Title>
+            <Amount type={transactionType}>{formattedAmount}</Amount>
+            <Footer>
+                <Category>
+                    <Icon name={categoryData.icon} />
+                    <CategoryName>{categoryData.name}</CategoryName>
+                </Category>
+                <Date>{date}</Date>
+            </Footer>
+        </Container>
+    );
 }
